@@ -179,12 +179,12 @@ function sendRequest()
     category=$comboBox1.Text
     subcategory=$comboBox2.Text}
     $body=$Body | ConvertTo-Json
-    $username="mydbdatasync2@hcl.com"
-    $password=ConvertTo-SecureString 'Comnet@123' -AsPlainText  -Force
+    $username="Your Usernmame"
+    $password=ConvertTo-SecureString 'YourPassword' -AsPlainText  -Force
     $credential=New-Object System.Management.Automation.PSCredential -ArgumentList $username,$password
     [net.servicepointmanager]::SecurityProtocol=[net.securityProtocolType]::Tls12 
-    $uri="https://hclgbpdev.service-now.com/api/now/table/incident"
-    $result=Invoke-RestMethod -Uri $uri -Method Post -Body $body -Credential $credential -ContentType "application/json"
+    $uri="Your URI"
+    $result=Invoke-RestMethod -Uri $uri -Method MethodName -Body $body -Credential $credential -ContentType "application/json"
     $script:number=$result.result.number
     }
 
